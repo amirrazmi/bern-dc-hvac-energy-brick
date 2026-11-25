@@ -1,0 +1,6 @@
+Step,PUE,HVAC energy MWh/a,Chillers MWh/a,CRAH fans MWh/a,HVAC cost kCHF/a,Heat reuse MWh/a,HVAC saving vs baseline
+Baseline,1.181,1151,586,385,230,0,0 %
+"M1 Raise air to 24 C, CHW to 16 C",1.153,905,308,385,181,0,21 %
+"M2 + Containment, fans 65 %",1.122,629,308,109,126,0,45 %
+M3 + Warm-water loop W32 for CDUs,1.108,509,164,109,102,0,56 %
+M4 + Heat reuse to district heating,1.108,509,164,109,102,2442,56 %

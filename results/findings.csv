@@ -1,0 +1,6 @@
+Finding,Evidence,Measure
+Overcooling,"CRAH supply air 18 C, at the bottom of the ASHRAE TC 9.9 recommended range (18-27 C), so chillers work harder than needed",Raise supply air to 24 C and chilled water to 16 C
+"Bypass air, fans at 100 %",Average CRAH air delta-T only 7.5 K with fans at 100 % (design about 12 K),Cold-aisle containment and fan speed control to about 65 %
+Liquid cooling on cold chilled water,2 CDUs fed from the 10 C chilled water loop although direct-to-chip racks accept warm water (ASHRAE W32),"Separate warm-water loop for CDUs at W32, served by dry coolers"
+Limited free cooling,Chillers run 2809 h per year while outdoor air is below 12 C,Higher water temperatures extend free-cooling hours (follows from measures above)
+No heat reuse,No heat meter or heat-reuse connection in the model; cantonal energy law (MuKEn) increasingly expects use of waste heat,Supply warm CDU return water to low-temperature district heating

@@ -1,0 +1,289 @@
+@prefix bldg: <urn:bern-dc#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix dc1: <urn:bern-dc-props#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bldg:Bern_DC a brick:Building ;
+    rdfs:label "Bern data centre (representative case)" ;
+    brick:hasPart bldg:Level_1,
+        bldg:Meter_IT,
+        bldg:Meter_Total ;
+    brick:hasPoint bldg:Outside_Air_Temp ;
+    dc1:itCapacity_kW 1000 .
+
+bldg:Chiller_1 a brick:Chiller ;
+    rdfs:label "Chiller 1" ;
+    brick:feeds bldg:CHW_Loop ;
+    brick:hasPoint bldg:Chiller_1_Power ;
+    dc1:ratedCooling_kW 600 .
+
+bldg:Chiller_2 a brick:Chiller ;
+    rdfs:label "Chiller 2" ;
+    brick:feeds bldg:CHW_Loop ;
+    brick:hasPoint bldg:Chiller_2_Power ;
+    dc1:ratedCooling_kW 600 .
+
+bldg:Dry_Cooler_1 a brick:Dry_Cooler ;
+    rdfs:label "Dry cooler 1 (free cooling)" ;
+    brick:feeds bldg:CHW_Loop ;
+    brick:hasPoint bldg:Dry_Cooler_1_Power .
+
+bldg:Dry_Cooler_2 a brick:Dry_Cooler ;
+    rdfs:label "Dry cooler 2 (free cooling)" ;
+    brick:feeds bldg:CHW_Loop ;
+    brick:hasPoint bldg:Dry_Cooler_2_Power .
+
+bldg:CDU_B1 a brick:Heat_Exchanger ;
+    rdfs:label "CDU B1 (coolant distribution unit)" ;
+    brick:hasLocation bldg:Hall_B ;
+    brick:hasPoint bldg:CDU_B1_Return_Water_Temp,
+        bldg:CDU_B1_Supply_Water_Temp .
+
+bldg:CDU_B1_Return_Water_Temp a brick:Return_Water_Temperature_Sensor ;
+    rdfs:label "CDU B1 Return Water Temp" ;
+    dc1:timeseries "cdu1_rws_c" .
+
+bldg:CDU_B1_Supply_Water_Temp a brick:Supply_Water_Temperature_Sensor ;
+    rdfs:label "CDU B1 Supply Water Temp" ;
+    dc1:timeseries "cdu1_sws_c" .
+
+bldg:CDU_B2 a brick:Heat_Exchanger ;
+    rdfs:label "CDU B2 (coolant distribution unit)" ;
+    brick:hasLocation bldg:Hall_B ;
+    brick:hasPoint bldg:CDU_B2_Return_Water_Temp,
+        bldg:CDU_B2_Supply_Water_Temp .
+
+bldg:CDU_B2_Return_Water_Temp a brick:Return_Water_Temperature_Sensor ;
+    rdfs:label "CDU B2 Return Water Temp" ;
+    dc1:timeseries "cdu2_rws_c" .
+
+bldg:CDU_B2_Supply_Water_Temp a brick:Supply_Water_Temperature_Sensor ;
+    rdfs:label "CDU B2 Supply Water Temp" ;
+    dc1:timeseries "cdu2_sws_c" .
+
+bldg:CHW_Pump_1 a brick:Pump ;
+    rdfs:label "Chilled water pump 1" ;
+    brick:hasPoint bldg:CHW_Pump_1_Power .
+
+bldg:CHW_Pump_1_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "CHW Pump 1 Power" ;
+    dc1:timeseries "pump1_kw" .
+
+bldg:CHW_Pump_2 a brick:Pump ;
+    rdfs:label "Chilled water pump 2" ;
+    brick:hasPoint bldg:CHW_Pump_2_Power .
+
+bldg:CHW_Pump_2_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "CHW Pump 2 Power" ;
+    dc1:timeseries "pump2_kw" .
+
+bldg:CHW_Supply_Temp a brick:Chilled_Water_Supply_Temperature_Sensor ;
+    rdfs:label "CHW Supply Temp" ;
+    dc1:timeseries "chw_supply_c" .
+
+bldg:CRAH_A1 a brick:CRAH ;
+    rdfs:label "CRAH A1" ;
+    brick:feeds bldg:Zone_Hall_A ;
+    brick:hasLocation bldg:Hall_A ;
+    brick:hasPart bldg:CRAH_A1_Fan ;
+    brick:hasPoint bldg:CRAH_A1_Power,
+        bldg:CRAH_A1_Return_Air_Temp,
+        bldg:CRAH_A1_Supply_Air_Temp,
+        bldg:CRAH_A1_Supply_Air_Temp_SP .
+
+bldg:CRAH_A1_Fan a brick:Fan ;
+    rdfs:label "CRAH A1 fan" ;
+    brick:hasPoint bldg:CRAH_A1_Fan_Speed .
+
+bldg:CRAH_A1_Fan_Speed a brick:Fan_Speed_Command ;
+    rdfs:label "CRAH A1 Fan Speed" ;
+    dc1:timeseries "crah1_fan_pct" .
+
+bldg:CRAH_A1_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "CRAH A1 Power" ;
+    dc1:timeseries "crah1_kw" .
+
+bldg:CRAH_A1_Return_Air_Temp a brick:Return_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A1 Return Air Temp" ;
+    dc1:timeseries "crah1_rat_c" .
+
+bldg:CRAH_A1_Supply_Air_Temp a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A1 Supply Air Temp" ;
+    dc1:timeseries "crah1_sat_c" .
+
+bldg:CRAH_A1_Supply_Air_Temp_SP a brick:Supply_Air_Temperature_Setpoint ;
+    rdfs:label "CRAH A1 Supply Air Temp SP" ;
+    dc1:timeseries "crah1_sat_sp" .
+
+bldg:CRAH_A2 a brick:CRAH ;
+    rdfs:label "CRAH A2" ;
+    brick:feeds bldg:Zone_Hall_A ;
+    brick:hasLocation bldg:Hall_A ;
+    brick:hasPart bldg:CRAH_A2_Fan ;
+    brick:hasPoint bldg:CRAH_A2_Power,
+        bldg:CRAH_A2_Return_Air_Temp,
+        bldg:CRAH_A2_Supply_Air_Temp,
+        bldg:CRAH_A2_Supply_Air_Temp_SP .
+
+bldg:CRAH_A2_Fan a brick:Fan ;
+    rdfs:label "CRAH A2 fan" ;
+    brick:hasPoint bldg:CRAH_A2_Fan_Speed .
+
+bldg:CRAH_A2_Fan_Speed a brick:Fan_Speed_Command ;
+    rdfs:label "CRAH A2 Fan Speed" ;
+    dc1:timeseries "crah2_fan_pct" .
+
+bldg:CRAH_A2_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "CRAH A2 Power" ;
+    dc1:timeseries "crah2_kw" .
+
+bldg:CRAH_A2_Return_Air_Temp a brick:Return_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A2 Return Air Temp" ;
+    dc1:timeseries "crah2_rat_c" .
+
+bldg:CRAH_A2_Supply_Air_Temp a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A2 Supply Air Temp" ;
+    dc1:timeseries "crah2_sat_c" .
+
+bldg:CRAH_A2_Supply_Air_Temp_SP a brick:Supply_Air_Temperature_Setpoint ;
+    rdfs:label "CRAH A2 Supply Air Temp SP" ;
+    dc1:timeseries "crah2_sat_sp" .
+
+bldg:CRAH_A3 a brick:CRAH ;
+    rdfs:label "CRAH A3" ;
+    brick:feeds bldg:Zone_Hall_A ;
+    brick:hasLocation bldg:Hall_A ;
+    brick:hasPart bldg:CRAH_A3_Fan ;
+    brick:hasPoint bldg:CRAH_A3_Power,
+        bldg:CRAH_A3_Return_Air_Temp,
+        bldg:CRAH_A3_Supply_Air_Temp,
+        bldg:CRAH_A3_Supply_Air_Temp_SP .
+
+bldg:CRAH_A3_Fan a brick:Fan ;
+    rdfs:label "CRAH A3 fan" ;
+    brick:hasPoint bldg:CRAH_A3_Fan_Speed .
+
+bldg:CRAH_A3_Fan_Speed a brick:Fan_Speed_Command ;
+    rdfs:label "CRAH A3 Fan Speed" ;
+    dc1:timeseries "crah3_fan_pct" .
+
+bldg:CRAH_A3_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "CRAH A3 Power" ;
+    dc1:timeseries "crah3_kw" .
+
+bldg:CRAH_A3_Return_Air_Temp a brick:Return_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A3 Return Air Temp" ;
+    dc1:timeseries "crah3_rat_c" .
+
+bldg:CRAH_A3_Supply_Air_Temp a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A3 Supply Air Temp" ;
+    dc1:timeseries "crah3_sat_c" .
+
+bldg:CRAH_A3_Supply_Air_Temp_SP a brick:Supply_Air_Temperature_Setpoint ;
+    rdfs:label "CRAH A3 Supply Air Temp SP" ;
+    dc1:timeseries "crah3_sat_sp" .
+
+bldg:CRAH_A4 a brick:CRAH ;
+    rdfs:label "CRAH A4" ;
+    brick:feeds bldg:Zone_Hall_A ;
+    brick:hasLocation bldg:Hall_A ;
+    brick:hasPart bldg:CRAH_A4_Fan ;
+    brick:hasPoint bldg:CRAH_A4_Power,
+        bldg:CRAH_A4_Return_Air_Temp,
+        bldg:CRAH_A4_Supply_Air_Temp,
+        bldg:CRAH_A4_Supply_Air_Temp_SP .
+
+bldg:CRAH_A4_Fan a brick:Fan ;
+    rdfs:label "CRAH A4 fan" ;
+    brick:hasPoint bldg:CRAH_A4_Fan_Speed .
+
+bldg:CRAH_A4_Fan_Speed a brick:Fan_Speed_Command ;
+    rdfs:label "CRAH A4 Fan Speed" ;
+    dc1:timeseries "crah4_fan_pct" .
+
+bldg:CRAH_A4_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "CRAH A4 Power" ;
+    dc1:timeseries "crah4_kw" .
+
+bldg:CRAH_A4_Return_Air_Temp a brick:Return_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A4 Return Air Temp" ;
+    dc1:timeseries "crah4_rat_c" .
+
+bldg:CRAH_A4_Supply_Air_Temp a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "CRAH A4 Supply Air Temp" ;
+    dc1:timeseries "crah4_sat_c" .
+
+bldg:CRAH_A4_Supply_Air_Temp_SP a brick:Supply_Air_Temperature_Setpoint ;
+    rdfs:label "CRAH A4 Supply Air Temp SP" ;
+    dc1:timeseries "crah4_sat_sp" .
+
+bldg:Chiller_1_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "Chiller 1 Power" ;
+    dc1:timeseries "chiller1_kw" .
+
+bldg:Chiller_2_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "Chiller 2 Power" ;
+    dc1:timeseries "chiller2_kw" .
+
+bldg:Dry_Cooler_1_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "Dry Cooler 1 Power" ;
+    dc1:timeseries "drycooler1_kw" .
+
+bldg:Dry_Cooler_2_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "Dry Cooler 2 Power" ;
+    dc1:timeseries "drycooler2_kw" .
+
+bldg:IT_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "IT Power" ;
+    dc1:timeseries "it_kw" .
+
+bldg:Level_1 a brick:Floor ;
+    rdfs:label "Level 1" ;
+    brick:hasPart bldg:Hall_A,
+        bldg:Hall_B,
+        bldg:Plant_Room .
+
+bldg:Meter_IT a brick:Electrical_Meter ;
+    rdfs:label "IT load meter" ;
+    brick:hasPoint bldg:IT_Power .
+
+bldg:Meter_Total a brick:Building_Electrical_Meter ;
+    rdfs:label "Total facility meter" ;
+    brick:hasPoint bldg:Total_Power .
+
+bldg:Outside_Air_Temp a brick:Outside_Air_Temperature_Sensor ;
+    rdfs:label "Outside Air Temp" ;
+    dc1:timeseries "oat_c" .
+
+bldg:Plant_Room a brick:Mechanical_Room ;
+    rdfs:label "Cooling plant room" .
+
+bldg:Total_Power a brick:Electric_Power_Sensor ;
+    rdfs:label "Total Power" ;
+    dc1:timeseries "total_kw" .
+
+bldg:Hall_B a brick:Server_Room ;
+    rdfs:label "Hall B, liquid-cooled, 600 kW IT" ;
+    dc1:itLoad_kW 600 .
+
+bldg:CHW_Loop a brick:Chilled_Water_Loop ;
+    rdfs:label "Chilled water loop" ;
+    brick:feeds bldg:CDU_B1,
+        bldg:CDU_B2,
+        bldg:CRAH_A1,
+        bldg:CRAH_A2,
+        bldg:CRAH_A3,
+        bldg:CRAH_A4 ;
+    brick:hasPart bldg:CHW_Pump_1,
+        bldg:CHW_Pump_2 ;
+    brick:hasPoint bldg:CHW_Supply_Temp .
+
+bldg:Zone_Hall_A a brick:HVAC_Zone ;
+    rdfs:label "Cold aisle zone, Hall A" ;
+    brick:hasLocation bldg:Hall_A .
+
+bldg:Hall_A a brick:Server_Room ;
+    rdfs:label "Hall A, air-cooled, 400 kW IT" ;
+    dc1:itLoad_kW 400 .
+
